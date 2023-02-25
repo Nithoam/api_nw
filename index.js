@@ -13,6 +13,10 @@ app.use((req, res, next) => {
   next();
 });
 
+//test route
+app.get('/', (req, res, next) => {
+  res.send('Hello World');
+});
 //CRUD routes
 app.use('/users', require('./routes/users'));
 

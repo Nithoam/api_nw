@@ -26,9 +26,11 @@ exports.getUser = (req, res, next) => {
 exports.createUser = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
+  const password = req.body.passsword;
   User.create({
     name: name,
-    email: email
+    email: email,
+    password: password
   })
     .then(result => {
       console.log('Created User');
@@ -47,6 +49,7 @@ exports.updateUser = (req, res, next) => {
   const userId = req.params.userId;
   const updatedName = req.body.name;
   const updatedEmail = req.body.email;
+  const updatedPassword = req.body.password;
   User.findByPk(userId)
     .then(user => {
       if (!user) {
@@ -54,6 +57,7 @@ exports.updateUser = (req, res, next) => {
       }
       user.name = updatedName;
       user.email = updatedEmail;
+      user.passsword = updatedPassword;
       return user.save();
     })
     .then(result => {
