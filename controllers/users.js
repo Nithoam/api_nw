@@ -26,7 +26,7 @@ exports.getUser = (req, res, next) => {
 exports.createUser = (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
-  const password = req.body.passsword;
+  const password = req.body.password;
   User.create({
     name: name,
     email: email,
@@ -57,7 +57,7 @@ exports.updateUser = (req, res, next) => {
       }
       user.name = updatedName;
       user.email = updatedEmail;
-      user.passsword = updatedPassword;
+      user.password = updatedPassword;
       return user.save();
     })
     .then(result => {
